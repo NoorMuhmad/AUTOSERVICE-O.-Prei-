@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoservice O. Preiß | Ihre KFZ-Werkstatt in Schkopau</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f6fa',
+                            100: '#e1edf5',
+                            500: '#1d4ed8', // Steel Blue accent
+                            600: '#1e40af',
+                            700: '#1d3557',
+                            800: '#0f172a', // Dark Slate
+                            accent: '#f97316', // Automotive Orange
+                            accentHover: '#ea580c'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+        .glass-header {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(29, 53, 87, 0.82) 60%, rgba(15, 23, 42, 0.75) 100%);
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-accent text-slate-950 font-semibold text-xs md:text-sm py-2 px-4 text-center">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+            <span><i class="fa-solid fa-clock mr-1">100% Weiterempfehlung auf Google</i></span>
+            <span class="hidden sm:inline">•</span>
+            <span>Schnelle Termine & Ehrliche Beratung in Schkopau</span>
+            <a href="tel:+4917660993119" class="underline hover:text-white transition-colors ml-2"><i class="fa-solid fa-phone mr-1"></i> Jetzt anrufen</a>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-50 glass-header border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl accent-gradient flex items-center justify-center text-white shadow-lg shadow-brand-accent/20 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-wrench text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white block leading-tight">Autoservice</span>
+                    <span class="text-xs text-brand-accent font-semibold tracking-widest uppercase block">O. Preiß</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#leistungen" class="hover:text-brand-accent transition-colors">Leistungen</a>
+                <a href="#vorteile" class="hover:text-brand-accent transition-colors">Warum Wir</a>
+                <a href="#bewertungen" class="hover:text-brand-accent transition-colors">Kundenstimmen</a>
+                <a href="#kontakt" class="hover:text-brand-accent transition-colors">Kontakt & Anfahrt</a>
+            </nav>
+
+            <!-- CTA Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="tel:+4917660993119" class="text-sm font-semibold text-slate-200 hover:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-brand-accent"></i>
+                    <span>0176 60993119</span>
+                </a>
+                <a href="#termin" class="accent-gradient hover:opacity-95 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-brand-accent/25 hover:shadow-brand-accent/40 transition-all hover:-translate-y-0.5">
+                    Termin anfragen
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white p-2 text-2xl focus:outline-none" aria-label="Menü öffnen">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-6 py-6 space-y-4">
+            <a href="#leistungen" class="block text-slate-200 hover:text-brand-accent text-lg font-medium py-1">Leistungen</a>
+            <a href="#vorteile" class="block text-slate-200 hover:text-brand-accent text-lg font-medium py-1">Warum Wir</a>
+            <a href="#bewertungen" class="block text-slate-200 hover:text-brand-accent text-lg font-medium py-1">Kundenstimmen</a>
+            <a href="#kontakt" class="block text-slate-200 hover:text-brand-accent text-lg font-medium py-1">Kontakt & Anfahrt</a>
+            <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+                <a href="tel:+4917660993119" class="w-full bg-slate-800 text-white font-semibold text-center py-3 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone text-brand-accent"></i> 0176 60993119
+                </a>
+                <a href="#termin" class="w-full accent-gradient text-white font-semibold text-center py-3 rounded-xl">
+                    Termin Vereinbaren
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16 lg:py-24">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Autoservice Preiß Werkstatt Schkopau" 
+                 class="w-full h-full object-cover object-center"
+                 onerror="this.src='https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=2000&auto=format&fit=crop'">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Google Rating Trust Badge -->
+                    <div class="inline-flex items-center gap-3 bg-slate-800/90 border border-slate-700/80 rounded-full px-4 py-2 backdrop-blur-md">
+                        <div class="flex text-amber-400 text-sm gap-0.5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-slate-200">4.9 / 5.0 Rating</span>
+                        <span class="text-slate-500 text-xs">•</span>
+                        <span class="text-xs text-slate-300 font-medium">39 Google Bewertungen</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Ihre zuverlässige <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-orange-400 to-amber-300">KFZ-Werkstatt</span> in Schkopau.
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed font-light">
+                        Ehrliche Beratung, schnelle Hilfe und erstklassiger Werkstattservice für alle Marken. Unkompliziert, stressfrei und zu fair kalkulierten Preisen.
+                    </p>
+
+                    <!-- CTAs & Action Buttons -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                        <a href="#termin" class="w-full sm:w-auto accent-gradient hover:opacity-95 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-brand-accent/25 hover:shadow-brand-accent/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            Termin Vereinbaren
+                        </a>
+                        <a href="tel:+4917660993119" class="w-full sm:w-auto bg-slate-800/90 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-lg px-8 py-4 rounded-xl backdrop-blur-sm transition-all hover:-translate-y-1 flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-accent"></i>
+                            Direkt Anrufen
+                        </a>
+                    </div>
+
+                    <!-- Key Bullet Points -->
+                    <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs sm:text-sm text-slate-300 font-medium">
+                        <div class="flex items-center gap-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                            <span>Alle Automarken</span>
+                        </div>
+                        <div class="flex items-center gap-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                            <span>Saubere Werkstatt</span>
+                        </div>
+                        <div class="flex items-center gap-2 justify-center lg:justify-start col-span-2 sm:col-span-1">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                            <span>100% Empfehlung</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Feature Hero Box -->
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl space-y-6 relative">
+                        <div class="absolute -top-3 -right-3 bg-brand-accent text-slate-950 text-xs font-extrabold uppercase px-3 py-1 rounded-full tracking-wider shadow-md">
+                            Meisterbetrieb
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-screwdriver-wrench text-brand-accent"></i>
+                            Werkstatt-Quick-Check
+                        </h3>
+
+                        <ul class="space-y-4 text-sm text-slate-300">
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-check text-xs"></i>
+                                </div>
+                                <div>
+                                    <strong class="text-white block">Persönlich & Direkt</strong>
+                                    Direkter Ansprechpartner ohne lange Warteschleifen.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-check text-xs"></i>
+                                </div>
+                                <div>
+                                    <strong class="text-white block">Transparente Kosten</strong>
+                                    Reperaturen werden vorher abgesprochen – keine versteckten Gebühren.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brand-accent/20 text-brand-accent flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-check text-xs"></i>
+                                </div>
+                                <div>
+                                    <strong class="text-white block">Schnelle Abwicklung</strong>
+                                    Ihr Fahrzeug ist schnellstmöglich wieder fahrbereit.
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="pt-4 border-t border-slate-700/80 flex items-center justify-between text-xs text-slate-400">
+                            <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> Alte Schäferei 3, Schkopau</span>
+                            <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-door-open mr-1"></i> Geöffnet 08-17 Uhr</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid (Leistungen) -->
+    <section id="leistungen" class="py-20 bg-slate-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-accent font-semibold text-sm uppercase tracking-wider">Unsere Werkstatt-Leistungen</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Rundum-Service für Ihr Auto</h2>
+                <p class="text-slate-400">Vom Routine-Check bis zur komplexen Reparatur – wir halten Ihr Fahrzeug sicher und leistungstark auf der Straße.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service Card 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-brand-accent/50 transition-all duration-300 hover:-translate-y-1.5 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-slate-800 text-brand-accent flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-car-burst"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Reparaturen & Wartung</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Fachgerechte Inspektionen nach Herstellervorgabe, Bremsen-Service, Auspuff-Reparatur und Stoßdämpfer-Wechsel.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 font-medium">
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> Inspektion & Ölwechsel</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> Bremssystem-Erneuerung</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> Verschleißteilwechsel</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-brand-accent/50 transition-all duration-300 hover:-translate-y-1.5 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-slate-800 text-brand-accent flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">HU / AU & Diagnose</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Hauptuntersuchung und Abgasuntersuchung direkt im Haus sowie computergestützte Fehlerspeicher-Diagnose.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 font-medium">
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> Vorab-Check für TÜV</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> OBD-Fehlerauslese</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> AU-Abgasmessung</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-brand-accent/50 transition-all duration-300 hover:-translate-y-1.5 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-slate-800 text-brand-accent flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-circle-notch"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Reifen- & Räderservice</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Professioneller Reifenwechsel, Auswuchten, Umstecken und Prüfen von Profiltiefe sowie Reifendruck.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 font-medium">
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> Saison-Reifenwechsel</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> Präzisions-Auswuchten</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> Neureifen-Montage</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-brand-accent/50 transition-all duration-300 hover:-translate-y-1.5 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-slate-800 text-brand-accent flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Motor & Elektronik</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Präzise Instandsetzung von Motorbauteilen, Batterietausch, Lichtmaschinen und moderner Fahrzeug-Elektronik.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 font-medium">
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> Batterie-Check & Wechsel</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> Lichtmaschinen & Anlasser</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-accent mr-1.5"></i> Zündung & Sensorik</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us (Warum Autoservice Preiß) -->
+    <section id="vorteile" class="py-20 bg-slate-900 border-t border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Image Visual -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Werkstatt Sauberes Arbeiten" 
+                             class="w-full h-[450px] object-cover"
+                             onerror="this.src='https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=1000&auto=format&fit=crop'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-4 bg-slate-900/90 backdrop-blur-md rounded-xl border border-slate-700">
+                            <p class="text-sm font-semibold text-white">"Clean Workshop & Uncomplicated Work"</p>
+                            <p class="text-xs text-brand-accent font-medium mt-1">— Kundenbeurteilung auf Google</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div>
+                        <span class="text-brand-accent font-semibold text-sm uppercase tracking-wider">Über Uns & Überzeugende Qualität</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Warum Kunden Autoservice Preiß schätzen</h2>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        
+                        <div class="p-5 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2">
+                            <div class="w-10 h-10 rounded-lg bg-brand-accent/20 text-brand-accent flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">Ehrliche Beratung</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Wir reparieren nur, was wirklich nötig ist. Sie erhalten transparente Ratschläge ohne versteckte Zusatzkosten.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2">
+                            <div class="w-10 h-10 rounded-lg bg-brand-accent/20 text-brand-accent flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">Schnelle & Stressfreie Abwicklung</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Kurze Standzeiten und unkomplizierte Terminvergabe, damit Sie schnell wieder mobil sind.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2">
+                            <div class="w-10 h-10 rounded-lg bg-brand-accent/20 text-brand-accent flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-tag"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">Faires Preis-Leistungs-Verhältnis</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Erstklassige Werkstattarbeit zu fairen, nachvollziehbaren Preisen für Schkopau und Umgebung.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2">
+                            <div class="w-10 h-10 rounded-lg bg-brand-accent/20 text-brand-accent flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-sparkles"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">Saubere & Moderne Werkstatt</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Höchster Wert auf Ordnung, modernste Diagnosegeräte und sorgfältige Behandlung Ihres Fahrzeugs.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Customer Reviews (Bewertungen) -->
+    <section id="bewertungen" class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-accent font-semibold text-sm uppercase tracking-wider">Echte Erfahrungen</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Das sagen unsere Kunden auf Google</h2>
+                <div class="flex items-center justify-center gap-2 text-amber-400 text-lg pt-1">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="text-slate-300 text-sm font-semibold ml-2">4.9 / 5.0 bei 39 Rezensionen</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between shadow-xl relative">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 text-sm gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 italic text-sm leading-relaxed">
+                            "SUPER nett! Unkompliziert. Top Werkstatt! Ich komme gerne wieder! Ein Kunde von Ihnen hat Sie mir empfohlen. Danke für die unkomplizierte, stressfreie Arbeit. Ich werde Sie weiterempfehlen!"
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Uwe Weigelt</h4>
+                            <span class="text-xs text-slate-500">Google Rezension</span>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-slate-800 text-brand-accent flex items-center justify-center font-bold text-xs">
+                            UW
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between shadow-xl relative">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 text-sm gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 italic text-sm leading-relaxed">
+                            "Klasse Typ. Preis und Leistung passen gut zusammen. Sehr faire Einschätzung und schnelle Abwicklung."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Mario Stöcker</h4>
+                            <span class="text-xs text-slate-500">Local Guide</span>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-slate-800 text-brand-accent flex items-center justify-center font-bold text-xs">
+                            MS
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between shadow-xl relative">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 text-sm gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 italic text-sm leading-relaxed">
+                            "Sehr zu empfehlen. Freundlich. Saubere Werkstatt. Kümmert sich hervorragend um seine Kunden."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">dune 1986</h4>
+                            <span class="text-xs text-slate-500">Local Guide</span>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-slate-800 text-brand-accent flex items-center justify-center font-bold text-xs">
+                            D
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="kontakt" class="py-20 bg-slate-900 border-t border-slate-800">
+        <div id="termin" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Left Info & Location Card -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-accent font-semibold text-sm uppercase tracking-wider">Direkter Kontakt</span>
+                        <h2 class="text-3xl font-extrabold text-white mt-2">Besuchen Sie uns in Schkopau</h2>
+                        <p class="text-slate-400 text-sm mt-3">Wir sind für Sie da. Rufen Sie uns an oder schicken Sie uns eine Nachricht für Ihren nächsten Werkstatt-Termin.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        
+                        <!-- Address -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 text-brand-accent flex items-center justify-center text-xl shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Adresse</h4>
+                                <p class="text-slate-300 text-sm mt-0.5">Alte Schäferei 3</p>
+                                <p class="text-slate-400 text-xs">06258 Schkopau, Deutschland</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone Numbers -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 text-brand-accent flex items-center justify-center text-xl shrink-0 mt-1">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Telefon / Mobil</h4>
+                                <p class="text-slate-300 text-sm mt-0.5">
+                                    <a href="tel:+4917660993119" class="hover:text-brand-accent transition-colors font-semibold">+49 176 60993119 (Mobil)</a>
+                                </p>
+                                <p class="text-slate-400 text-xs mt-0.5">
+                                    Festnetz: <a href="tel:034613702156" class="hover:text-white">03461 3702156</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Opening Hours -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 text-brand-accent flex items-center justify-center text-xl shrink-0 mt-1">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Öffnungszeiten</h4>
+                                <div class="text-slate-300 text-sm mt-1 space-y-1">
+                                    <p class="flex justify-between gap-4">
+                                        <span>Montag – Freitag:</span>
+                                        <span class="font-semibold text-white">08:00 – 17:00 Uhr</span>
+                                    </p>
+                                    <p class="flex justify-between gap-4 text-xs text-slate-400">
+                                        <span>Samstag:</span>
+                                        <span class="text-brand-accent font-medium">Nach Vereinbarung</span>
+                                    </p>
+                                    <p class="flex justify-between gap-4 text-xs text-slate-400">
+                                        <span>Sonntag:</span>
+                                        <span>Geschlossen</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Direct Call Box -->
+                    <div class="p-6 rounded-2xl bg-gradient-to-r from-brand-700 to-slate-800 border border-slate-700 text-white flex items-center justify-between shadow-xl">
+                        <div>
+                            <p class="text-xs text-slate-300 font-medium uppercase tracking-wider">Schnelle Frage?</p>
+                            <h4 class="text-lg font-bold">Rufen Sie direkt an</h4>
+                        </div>
+                        <a href="tel:+4917660993119" class="accent-gradient p-3 rounded-xl hover:scale-105 transition-transform text-white text-lg">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Lead Capture Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl relative">
+                        <h3 class="text-2xl font-bold text-white mb-2">Termin oder Anfrage senden</h3>
+                        <p class="text-slate-400 text-sm mb-8">Füllen Sie das Formular aus – wir melden uns umgehend bei Ihnen zur Bestätigung.</p>
+
+                        <!-- Success Message Banner (Hidden by default) -->
+                        <div id="form-success" class="hidden mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm">
+                            <i class="fa-solid fa-circle-check mr-2"></i> Vielen Dank! Ihre Anfrage wurde erfolgreich übermittelt. Wir kontaktieren Sie in Kürze.
+                        </div>
+
+                        <form id="contact-form" class="space-y-5">
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Ihr Name *</label>
+                                    <input type="text" required placeholder="Max Mustermann" 
+                                           class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Telefonnummer *</label>
+                                    <input type="tel" required placeholder="0176 12345678" 
+                                           class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">E-Mail Adresse</label>
+                                    <input type="email" placeholder="name@beispiel.de" 
+                                           class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Fahrzeugmodell / Kennzeichen</label>
+                                    <input type="text" placeholder="z.B. VW Golf / SK-AB 123" 
+                                           class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Gewünschte Leistung</label>
+                                    <select class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                        <option value="reparatur">Reparatur & Wartung</option>
+                                        <option value="hu-au">HU / AU Hauptuntersuchung</option>
+                                        <option value="reifen">Reifenservice</option>
+                                        <option value="elektronik">Fehlerspeicher / Elektronik</option>
+                                        <option value="sonstiges">Sonstiges / Beratung</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Wunschtermin (Optional)</label>
+                                    <input type="date" 
+                                           class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Ihre Nachricht / Anliegen</label>
+                                <textarea rows="4" placeholder="Beschreiben Sie kurz Ihr Anliegen oder Symptome am Fahrzeug..." 
+                                          class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full accent-gradient hover:opacity-95 text-white font-bold text-base py-4 rounded-xl shadow-xl shadow-brand-accent/25 hover:shadow-brand-accent/40 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                Anfrage Jetzt Absenden
+                            </button>
+
+                            <p class="text-center text-xs text-slate-500 mt-3">
+                                <i class="fa-solid fa-lock mr-1"></i> Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 py-12 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg accent-gradient flex items-center justify-center text-white font-bold text-sm">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white">Autoservice O. Preiß</span>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+                        Ihre freie KFZ-Werkstatt in Schkopau. Qualität, Transparenz und ehrlicher Service rund um Ihr Fahrzeug.
+                    </p>
+                    <div class="flex gap-4 text-slate-400">
+                        <a href="#" class="hover:text-brand-accent transition-colors text-lg"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://wa.me/4917660993119" target="_blank" class="hover:text-emerald-400 transition-colors text-lg"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="tel:+4917660993119" class="hover:text-brand-accent transition-colors text-lg"><i class="fa-solid fa-phone"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Navigation</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#leistungen" class="hover:text-white transition-colors">Leistungen</a></li>
+                        <li><a href="#vorteile" class="hover:text-white transition-colors">Warum Uns Wählen</a></li>
+                        <li><a href="#bewertungen" class="hover:text-white transition-colors">Kundenstimmen</a></li>
+                        <li><a href="#kontakt" class="hover:text-white transition-colors">Termin vereinbaren</a></li>
+                    </ul>
+                </div>
+
+                <!-- Address Summary -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Werkstatt Schkopau</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Alte Schäferei 3<br>
+                        06258 Schkopau, Deutschland<br>
+                        Tel: 0176 60993119<br>
+                        Festnetz: 03461 3702156
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright & Legal -->
+            <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Autoservice O. Preiß. Alle Rechte vorbehalten.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-slate-400">Impressum</a>
+                    <a href="#" class="hover:text-slate-400">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top Floating Action Button -->
+    <a href="#" class="fixed bottom-6 right-6 z-40 bg-slate-800 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg border border-slate-700 hover:bg-brand-accent hover:border-brand-accent transition-all duration-300">
+        <i class="fa-solid fa-arrow-up text-sm"></i>
+    </a>
+
+    <!-- Simple Interactivity Scripts -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Contact Form Submission Handler (Mock Presentation)
+        const form = document.getElementById('contact-form');
+        const successMsg = document.getElementById('form-success');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            successMsg.classList.remove('hidden');
+            form.reset();
+            // Scroll smoothly to success message
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+</body>
+</html>
